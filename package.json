@@ -1,0 +1,24 @@
+{
+  "name": "ps-timesheet-app-backend",
+  "version": "1.0.0",
+  "description": "Backend for timesheet web app using hapijs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ilango100/PS-Timesheet-App-Backend.git"
+  },
+  "keywords": [
+    "hapijs",
+    "backend",
+    "timesheet"
+  ],
+  "author": "Ilango Rajagopal <ilangokul@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ilango100/PS-Timesheet-App-Backend/issues"
+  },
+  "homepage": "https://github.com/ilango100/PS-Timesheet-App-Backend#readme"
+}
