@@ -25,6 +25,17 @@ server.route({
     }
 });
 
+server.route({
+    method: 'GET',
+    path: '/node_modules/{path*}',
+    handler: {
+        directory: {
+            path: 'node_modules',
+            index: false
+        }
+    }
+});
+
 server.start((err) => {
     if (err)
         throw err;
