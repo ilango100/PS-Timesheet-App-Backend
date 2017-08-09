@@ -18,20 +18,9 @@ server.route({
     path: '/{path*}',
     handler: {
         directory: {
-            path: 'src',
+            path: 'dist',
             index: true,
             redirectToSlash: true
-        }
-    }
-});
-
-server.route({
-    method: 'GET',
-    path: '/node_modules/{path*}',
-    handler: {
-        directory: {
-            path: 'node_modules',
-            index: false
         }
     }
 });
