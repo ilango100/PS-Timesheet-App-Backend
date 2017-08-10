@@ -46,8 +46,14 @@ dbconn.query("show databases",function(err,results,field) {
             }
         });
     }
+    dbconn.query("use timesheet",function(er,res,f) {
+        if (er) {
+            console.log("Error while using timesheet database...")
+        }
+    })
 });
 
+//Start server
 const server = new hapi.Server();
 server.connection({
     port: 80,
