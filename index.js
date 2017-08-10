@@ -1,5 +1,6 @@
-const hapi = require('hapi')
-const inert = require('inert')
+const hapi = require('hapi');
+const inert = require('inert');
+const mysql = require('mysql');
 
 const server = new hapi.Server();
 server.connection({
@@ -11,7 +12,7 @@ server.connection({
     }
 });
 
-server.register(inert,() => {})
+server.register(inert,() => {});
 
 server.route({
     method: 'GET',
@@ -41,4 +42,4 @@ server.start((err) => {
         throw err;
 
     console.log("Server running...");
-})
+});
