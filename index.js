@@ -60,8 +60,8 @@ dbconn.query("show databases",function(err,results,field) {
 				console.log("Users table exists...");
 			} else {
 				console.log("Users table doesnot exist, creating...");
-				dbconn.query("create table users (username VARCHAR(20) PRIMARY KEY, password VARCHAR(12),\
-				dob DATE, email VARCHAR(50))",function(f,s,g) {
+				dbconn.query("create table users (username VARCHAR(20) NOT NULL PRIMARY KEY, password VARCHAR(12) NOT NULL,\
+				dob DATE, email VARCHAR(50) NOT NULL UNIQUE)",function(f,s,g) {
 					if (f) {
 						console.log("Error creating table...",f.message)
 						process.exit(1);
