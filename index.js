@@ -19,6 +19,15 @@ let dbconn = mysql.createConnection({
     password: msqpass,
 });
 
+//Connect to mysql
+dbconn.connect(err => {
+    if (err) {
+        console.log("Error connecting to db...",err.message);
+        process.exit(1);
+    }
+    console.log("Connected to mysql server successfully...")
+});
+
 const server = new hapi.Server();
 server.connection({
     port: 80,
