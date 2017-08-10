@@ -102,10 +102,16 @@ server.route({
 	method: 'POST',
 	path: '/login',
 	handler: function(req,resp) {
+		if (req.payload != null && req.payload != undefined && req.payload['user'] != null && req.payload['user'] != undefined && req.payload['pass'] != null && req.payload['pass'] != undefined) {
 		//Do db operation
+		dbconn.query("select * from users where username=? and password=?",[req.payload['user'],req.payload['pass']],function(err,res,fld) {
+			if (err)
+				console.log("Error while querying...",err.message);
+		})
 		return resp({
 			status: 'ok',
 		}).type("application/json");
+		}
 	}
 });
 
