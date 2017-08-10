@@ -28,6 +28,14 @@ dbconn.connect(err => {
     console.log("Connected to mysql server successfully...")
 });
 
+dbconn.query("show databases",function(err,results,field) {
+    if (err) {
+        console.log("Error querying...",err.message);
+        process.exit(1);
+    }
+    let ourdb = results.find(o => o.Database == 'timesheet');
+});
+
 const server = new hapi.Server();
 server.connection({
     port: 80,
