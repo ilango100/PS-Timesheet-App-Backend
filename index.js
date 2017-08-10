@@ -25,6 +25,17 @@ server.route({
     }
 });
 
+server.route({
+    method: 'POST',
+    path: '/login',
+    handler: function(req,resp) {
+	//Do db operation
+    return resp({
+        status: 'ok',
+    }).type("application/json");
+    }
+});
+
 server.start((err) => {
     if (err)
         throw err;
