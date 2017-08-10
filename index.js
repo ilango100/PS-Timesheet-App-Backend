@@ -99,6 +99,14 @@ server.route({
 });
 
 server.route({
+	method: 'GET',
+	path: '/break',
+	handler: function(req,reply) {
+		reply().redirect('/').temporary();
+	}
+});
+
+server.route({
 	method: 'POST',
 	path: '/login',
 	handler: function(req,resp) {
