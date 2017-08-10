@@ -107,9 +107,19 @@ server.route({
 		dbconn.query("select * from users where username=? and password=?",[req.payload['user'],req.payload['pass']],function(err,res,fld) {
 			if (err)
 				console.log("Error while querying...",err.message);
+			if (res.length < 1) {
+				return resp({
+					login: false,
+				}).type("application/json");
+			} else {
+				return resp({
+					login: true,
+				}).type("application/json");
+			}
 		})
+		} else {
 		return resp({
-			status: 'ok',
+			login: false,
 		}).type("application/json");
 		}
 	}
