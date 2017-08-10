@@ -34,6 +34,18 @@ dbconn.query("show databases",function(err,results,field) {
         process.exit(1);
     }
     let ourdb = results.find(o => o.Database == 'timesheet');
+    console.log(ourdb);
+    if (ourdb != null && ourdb != undefined && ourdb['Database'] != null) {
+        console.log("Database exists...");
+    } else {
+        console.log("Database doesnot exist, creating...");
+        dbconn.query("create database timesheet",function(er,res,f) {
+            if (err) {
+                console.log("Error creating database...",er)
+                process.exit(1);
+            }
+        });
+    }
 });
 
 const server = new hapi.Server();
