@@ -13,10 +13,10 @@ if (args.length < 2) {
     msqpass = args[1];
 }
 
-console.log(msquser,msqpass);
-
 let dbconn = mysql.createConnection({
-
+    host: 'localhost',
+    user: msquser,
+    password: msqpass,
 });
 
 const server = new hapi.Server();
