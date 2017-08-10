@@ -2,6 +2,23 @@ const hapi = require('hapi');
 const inert = require('inert');
 const mysql = require('mysql');
 
+let args = process.argv.slice(2);
+let msquser = "";
+let msqpass = "";
+if (args.length < 2) {
+    console.log("Usage:",process.argv[0],process.argv[1],"username password");
+    process.exit(1);
+} else {
+    msquser = args[0];
+    msqpass = args[1];
+}
+
+console.log(msquser,msqpass);
+
+let dbconn = mysql.createConnection({
+
+});
+
 const server = new hapi.Server();
 server.connection({
     port: 80,

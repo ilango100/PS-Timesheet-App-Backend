@@ -23,6 +23,7 @@
   "homepage": "https://github.com/ilango100/PS-Timesheet-App-Backend#readme",
   "dependencies": {
     "hapi": "^16.5.2",
-    "inert": "^4.2.1"
+    "inert": "^4.2.1",
+    "mysql": "^2.14.1"
   }
 }
