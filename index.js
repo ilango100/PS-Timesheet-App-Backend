@@ -98,13 +98,20 @@ server.route({
 	}
 });
 
+defPaths = [
+	'/break',
+	'/details'
+];
+
+for (let i=0; i< defPaths.length; i++) {
 server.route({
 	method: 'GET',
-	path: '/break',
+	path: defPaths[i],
 	handler: function(req,reply) {
 		reply().redirect('/').temporary();
 	}
 });
+}
 
 server.route({
 	method: 'POST',
