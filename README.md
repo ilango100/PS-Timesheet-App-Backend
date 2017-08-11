@@ -5,6 +5,8 @@ Checks in and a form is shown to enter a break time
 Also a calender of 2 views: monthly and weekly to show working time of the respective times.
 Should we need to save each break times? Lets assume we don't have to and just save the time worked in a day in db.
 
+This app is hosted at http://ilango.ddns.net/
+
 ## How should it work?
 
 Listen for get requests and serve static angular files.
