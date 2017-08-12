@@ -181,18 +181,18 @@ server.route({
 							} else {
 								//create user
 								if (req.payload['dob'] == '')
-									dbconn.query("insert into users (username,password,email) values (?,?,?)"
+									dbconn.query("insert into users (username,password,email) values (?,?,?)",
 										[req.payload['user'],req.payload['pass'],req.payload['email']],
 										function(e,r,f) {
 											if (e) {
+												console.log(e)
 												return rep({
 													register: false,
 													error: 'query',
 												}).type("application/json")
-												console.log(e)
 											}
-											if (r != null && r.length > 0) {
-												console.log(r)
+											if (r != null) {
+												console.log(req.payload['user']+" registered")
 												return rep({
 													register: true,
 												}).type("application/json")
@@ -208,10 +208,9 @@ server.route({
 												register: false,
 												error: 'query',
 											}).type("application/json")
-											console.log(e)
 										}
-										if (r != null && r.length > 0) {
-											console.log(r)
+										if (r != null) {
+											console.log(req.payload['user']+" registered")
 											return rep({
 												register: true,
 											}).type("application/json")
