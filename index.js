@@ -161,6 +161,19 @@ server.route({
 						}).type('application/json')
 					} else {
 						//check for username
+						dbconn.query("select * from users where username=?",req.payload['user'],function(er,rs,fld) {
+							if (er) {
+								console.log("User query check failed");
+							}
+							if (res != null && res.length > 0) {
+								return rep({
+									register: false,
+									error: 'user',
+								}).type('application/json')
+							} else {
+								//create user
+							}
+						})
 					}
 				});
 
