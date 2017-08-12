@@ -140,6 +140,22 @@ server.route({
 	}
 });
 
+server.route({
+	method: 'POST',
+	path: '/register',
+	handler: function(req,rep) {
+		if (req.payload != null && req.payload != undefined &&
+			req.payload['user'] != null && req.payload['user'] != undefined &&
+			req.payload['pass'] != null && req.payload['pass'] != undefined &&
+			req.payload['email'] != null && req.payload['email'] != undefined) {
+		} else {
+			return rep({
+				register: false,
+			}).type('application/json');
+		}
+	}
+});
+
 server.start((err) => {
 	if (err)
 		throw err;
