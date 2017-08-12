@@ -148,6 +148,22 @@ server.route({
 			req.payload['user'] != null && req.payload['user'] != undefined &&
 			req.payload['pass'] != null && req.payload['pass'] != undefined &&
 			req.payload['email'] != null && req.payload['email'] != undefined) {
+
+				//check for email
+				dbconn.query("select * from users where email=?",req.payload['email'],function(err,res,flds) {
+					if (err) {
+						console.log("Email check query failed");
+					}
+					if (res != null && res.length > 0) {
+						return rep({
+							register: false,
+							error : 'email',
+						}).type('application/json')
+					} else {
+						//check for username
+					}
+				});
+
 		} else {
 			return rep({
 				register: false,
