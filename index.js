@@ -165,7 +165,7 @@ server.route({
 							if (er) {
 								console.log("User query check failed");
 							}
-							if (res != null && res.length > 0) {
+							if (rs != null && rs.length > 0) {
 								return rep({
 									register: false,
 									error: 'user',
