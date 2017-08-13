@@ -192,10 +192,20 @@ server.route({
 												}).type("application/json")
 											}
 											if (r != null) {
-												console.log(req.payload['user']+" registered")
-												return rep({
-													register: true,
-												}).type("application/json")
+												dbconn.query("create table "+req.payload['user']+"_ts (date DATE NOT NULL PRIMARY KEY,work DECIMAL(4.2), CHECK (work <= 24))",function(erro,resu,fild){
+													if (erro){
+														console.log(erro)
+														return rep({
+															register: false,
+															error: 'query',
+														}).type('application/json')
+													} else {
+														console.log(req.payload['user']+" registered")
+														return rep({
+															register: true,
+														}).type("application/json")
+													}
+												})
 											}
 										})
 								else
@@ -210,10 +220,20 @@ server.route({
 											}).type("application/json")
 										}
 										if (r != null) {
-											console.log(req.payload['user']+" registered")
-											return rep({
-												register: true,
-											}).type("application/json")
+											dbconn.query("create table "+req.payload['user']+"_ts (date DATE NOT NULL PRIMARY KEY,work DECIMAL(4.2), CHECK (work <= 24))",function(erro,resu,fild){
+													if (erro){
+														console.log(erro)
+														return rep({
+															register: false,
+															error: 'query',
+														}).type('application/json')
+													} else {
+														console.log(req.payload['user']+" registered")
+														return rep({
+															register: true,
+														}).type("application/json")
+													}
+												})
 										}
 									})
 							}
